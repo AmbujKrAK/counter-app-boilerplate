@@ -1,18 +1,19 @@
 import "./App.css";
+import { useState } from "react";
 
 function App() {
 
-  const [counter, setCounter] = useState(0);
+  const [count, setCount] = useState(0);
 
   let handleChange = (event) => {
-    setCounter(event.target.value);
+    setCount(event.target.value);
   }
 
   return (
     <div className="App">
-      <h2 data-testid="counter-value">X</h2>
-      <button data-testid="counter-decrement-button" onClick={()}>+</button>
-      <button data-testid="counter-increment-button" onClick={()}>-</button>
+      <h2 data-testid="counter-value">{count}</h2>
+      <button data-testid="counter-decrement-button" onClick={()=> setCount(count + 1)}>+</button>
+      <button data-testid="counter-increment-button" onClick={()=> setCount(count - 1)}>-</button>
     </div>
   );
 }
